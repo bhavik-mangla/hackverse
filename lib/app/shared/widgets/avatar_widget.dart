@@ -11,9 +11,14 @@ class AvatarWidget extends StatelessWidget {
       width: 40,
       child: Stack(
         children: [
-          const CircleAvatar(
-            radius: 18,
-            backgroundImage: AssetImage('assets/profile_pic.jpg'),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: const CircleAvatar(
+              radius: 18,
+              backgroundImage: AssetImage('assets/images/profile_pic.jpg'),
+            ),
           ),
           Positioned(
             top: 3,

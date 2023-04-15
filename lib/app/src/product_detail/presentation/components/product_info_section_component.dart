@@ -12,43 +12,8 @@ class ProductInfoSectionComponent extends StatelessWidget {
       child: Column(
         children: const [
           LineProductInfoWidget(
-            title: 'HOPS',
-            description: '2 Row, Torrified Wheat',
-          ),
-          SizedBox(height: 14),
-          LineProductInfoWidget(
-            title: 'MALTS',
-            description: 'Cascade, First Gold, Mt.Hood',
-          ),
-          SizedBox(height: 14),
-          LineProductInfoWidget(
-            title: 'HOPS',
-            description: '2 Row, Torrified Wheat',
-          ),
-          SizedBox(height: 14),
-          LineProductInfoWidget(
-            title: 'MALTS',
-            description: 'Cascade, First Gold, Mt.Hood',
-          ),
-          SizedBox(height: 14),
-          LineProductInfoWidget(
-            title: 'HOPS',
-            description: '2 Row, Torrified Wheat',
-          ),
-          SizedBox(height: 14),
-          LineProductInfoWidget(
-            title: 'MALTS',
-            description: 'Cascade, First Gold, Mt.Hood',
-          ),
-          SizedBox(height: 14),
-          LineProductInfoWidget(
-            title: 'MALTS',
-            description: 'Cascade, First Gold, Mt.Hood',
-          ),
-          SizedBox(height: 14),
-          LineProductInfoWidget(
-            title: 'MALTS',
-            description: 'Cascade, First Gold, Mt.Hood',
+            title: 'Shop Name',
+            description: 'Shop Address',
           ),
           SizedBox(height: 14),
         ],

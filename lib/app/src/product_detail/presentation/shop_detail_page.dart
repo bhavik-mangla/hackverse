@@ -12,22 +12,23 @@ import 'components/circle_product_widget.dart';
 import 'components/product_counter_widget.dart';
 import 'components/product_info_section_component.dart';
 import 'components/product_tile_section_component.dart';
+import 'components/shop_info_section_component.dart';
 
-class ProductDetailPage extends StatefulWidget {
-  final Listing image;
-  const ProductDetailPage({
+class ShopDetailPage extends StatefulWidget {
+  final Shop image;
+  const ShopDetailPage({
     super.key,
     required this.image,
   });
 
   @override
-  State<ProductDetailPage> createState() => _ProductDetailPageState(image);
+  State<ShopDetailPage> createState() => _ShopDetailPageState(image);
 }
 
-class _ProductDetailPageState extends State<ProductDetailPage> {
-  final Listing image;
+class _ShopDetailPageState extends State<ShopDetailPage> {
+  final Shop image;
 
-  _ProductDetailPageState(this.image);
+  _ShopDetailPageState(this.image);
 
   final DraggableScrollableController _scrollableController =
       DraggableScrollableController();
@@ -63,7 +64,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     var height = MediaQuery.of(context).size.height;
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.secondaryColor,
       appBar: AppBarWidget(
         onBackPressed: () {
           Navigator.pop(context);
@@ -135,64 +136,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const ProductCounter(initialValue: 1),
-                SizedBox(
-                  height: 60,
-                  width: size.width * .5,
-                  child: ValueListenableBuilder(
-                    valueListenable: _buttonLoading,
-                    builder: (_, value, __) {
-                      return AppButton(
-                        reverse: true,
-                        loading: value,
-                        onPressed: () {
-                          if (value) {
-                            _buttonLoading.value = false;
-                          } else {
-                            _buttonLoading.value = true;
-                          }
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              image.price,
-                              style: GoogleFonts.poppins(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                            Container(
-                              width: 3,
-                              height: 3,
-                              decoration: BoxDecoration(
-                                color: AppColors.secondaryColor.withOpacity(.5),
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                            Text(
-                              'ADD TO CART',
-                              style: GoogleFonts.poppins(
-                                fontSize: 14,
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          )
         ],
       ),
     );
@@ -227,7 +170,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                   ),
                   Text(
-                    image.description,
+                    image.address,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
                       fontSize: 18,
@@ -249,7 +192,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         delegate: SliverChildBuilderDelegate(
           childCount: sliverChildCount,
           (context, index) {
-            return const ProductInfoSectionComponent();
+            return ShopInfoSectionComponent(
+              image: image,
+            );
           },
         ),
       ),

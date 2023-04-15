@@ -7,10 +7,11 @@ import '../../../../../product_model.dart';
 import '../../../../../sample2.dart';
 import '../../../../shared/widgets/app_button.dart';
 import '../../../product_detail/presentation/product_detail_page.dart';
+import '../../../product_detail/presentation/shop_detail_page.dart';
 
-class HomeProductCardWidget extends StatelessWidget {
-  final Listing image;
-  const HomeProductCardWidget({
+class ShopProductCardWidget extends StatelessWidget {
+  final Shop image;
+  const ShopProductCardWidget({
     super.key,
     required this.image,
   });
@@ -23,7 +24,7 @@ class HomeProductCardWidget extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ProductDetailPage(image: image),
+            builder: (context) => ShopDetailPage(image: image),
           ),
         );
       },
@@ -45,6 +46,13 @@ class HomeProductCardWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
+                              'Fashion Store',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
                               image.name,
                               style: GoogleFonts.poppins(
                                 fontSize: 18,
@@ -54,7 +62,7 @@ class HomeProductCardWidget extends StatelessWidget {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              image.description,
+                              image.address,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: GoogleFonts.poppins(
@@ -93,11 +101,11 @@ class HomeProductCardWidget extends StatelessWidget {
                         width: 120,
                       ),
                       SizedBox(
-                        width: 86,
+                        width: 140,
                         child: AppButton(
                           onPressed: () {},
                           child: Text(
-                            image.price,
+                            image.phone,
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -138,7 +146,7 @@ class HomeProductCardWidget extends StatelessWidget {
               left: -0,
               child: SizedBox(
                 height: 140,
-                width: 120,
+                width: 100,
                 child: Hero(
                   tag: image,
                   child: ClipRRect(

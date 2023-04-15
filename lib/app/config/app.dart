@@ -2,7 +2,6 @@ import 'package:device_frame/device_frame.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'routes/routers.dart';
 import 'theme/app_colors.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +11,6 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Beer Store',
-      routerConfig: router,
       theme: ThemeData(
         primaryColor: AppColors.primaryColor,
         iconTheme: const IconThemeData(color: AppColors.primaryColor),

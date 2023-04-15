@@ -1,4 +1,4 @@
-import 'package:beer_store/app/config/theme/app_colors.dart';
+import 'package:hackverse/app/config/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class RunningDropWidget extends StatelessWidget {

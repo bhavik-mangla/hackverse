@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>719382982106-4os7tehnbu2d5u32rlkn6g1d4qnnhfap.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.719382982106-4os7tehnbu2d5u32rlkn6g1d4qnnhfap</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDOQbJJdWayJeq1VsNmOe3CHUXBHMnhPII</string>
+	<key>GCM_SENDER_ID</key>
+	<string>719382982106</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.beerStore</string>
+	<key>PROJECT_ID</key>
+	<string>hackverse-auth</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hackverse-auth.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:719382982106:ios:3f3dd8dfcc147882b464e3</string>
+</dict>
+</plist>

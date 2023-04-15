@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "719382982106",
+    "project_id": "hackverse-auth",
+    "storage_bucket": "hackverse-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719382982106:android:68e930d0ac654b0cb464e3",
+        "android_client_info": {
+          "package_name": "com.example.beer_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719382982106-ng2df7rhrmjno90dc7dd1m78hm1fil1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZbBdUKt5vEdRq31GJvGL1SNHMvy6a7Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719382982106-ng2df7rhrmjno90dc7dd1m78hm1fil1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

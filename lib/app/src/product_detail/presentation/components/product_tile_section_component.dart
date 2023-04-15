@@ -11,8 +11,8 @@ class ProductTileSectionComponent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: const [
         TileProductInfoWidget(
-          title: 'ALCOHOL',
-          description: '7.6%',
+          title: 'Brand Name',
+          description: 'Brand Address',
           color: Color(0xff7378ff),
         ),
         TileProductInfoWidget(

@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'dart:convert';
-import 'package:hackverse/app/src/home/presentation/shop_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackverse/app/config/theme/app_colors.dart';
 import 'package:hackverse/app/shared/widgets/avatar_widget.dart';
@@ -11,15 +10,17 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../product_model.dart';
 import 'components/home_product_card_widget.dart';
 import 'components/runing_drop_widget.dart';
+import 'components/shop_product_card_widget.dart';
+import 'home_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class ShopPage extends StatefulWidget {
+  const ShopPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ShopPage> createState() => _ShopPageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
   late AnimationController _controller;
   late int _selectedIndex;
   late int _previousIndex;
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       vsync: this,
       //milliseconds: 800
       duration: const Duration(milliseconds: 500),
-    )..forward(from: 0.0);
+    )..forward(from: 1.0);
   }
 
   @override
@@ -53,7 +54,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   void _onTap(int index) {
-    _controller.forward(from: 0.0);
+    _controller.forward(from: 1.0);
     setState(() {
       _selectedIndex = index;
     });
@@ -64,10 +65,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         });
       }
     });
-    if (index == 1) {
+    if (index == 0) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ShopPage()),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
   }
@@ -83,20 +84,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             if (snapshot.hasData) {
               List<Map<String, dynamic>> catalogues =
                   List<Map<String, dynamic>>.from(jsonDecode(snapshot.data!));
-              List<Listing> allProducts = [];
+              List<Shop> allShops = [];
 
               for (var catalogue in catalogues) {
-                for (var product in catalogue['products']) {
-                  allProducts.add(Listing(
-                      pid: product['pid'],
-                      name: product['name'],
-                      price: product['price'],
-                      image: product['image'],
-                      description: product['description']));
+                {
+                  allShops.add(Shop(
+                      sid: catalogue['sid'],
+                      name: catalogue['name'],
+                      phone: catalogue['phone'],
+                      address: catalogue['address'],
+                      image: catalogue['image'],
+                      products: List<Listing>.from(catalogue['products']
+                          .map((x) => Listing.fromJson(x)))));
                 }
               }
 
-              allProducts.shuffle();
+              allShops.shuffle();
               return Column(
                 children: [
                   SizedBox(
@@ -134,13 +137,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             ),
                           ),
                           child: ListView.separated(
-                            itemCount: allProducts.length,
+                            itemCount: allShops.length,
                             separatorBuilder: (context, index) =>
                                 const SizedBox(height: 10),
                             itemBuilder: (context, index) {
-                              Listing image = allProducts[index];
+                              Shop image = allShops[index];
 
-                              return HomeProductCardWidget(
+                              return ShopProductCardWidget(
                                 image: image,
                               );
                             },
