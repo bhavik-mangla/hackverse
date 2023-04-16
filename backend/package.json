@@ -1,0 +1,18 @@
+{
+  "name": "nitk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-formidable": "^1.2.0",
+    "ipfs-http-client": "^60.0.0",
+    "mongodb": "5.2"
+  }
+}
