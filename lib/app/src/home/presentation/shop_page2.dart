@@ -13,6 +13,7 @@ import '../../../../product_model.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../QRPage.dart';
+import '../../category/category_list_page.dart';
 import 'components/runing_drop_widget.dart';
 import 'components/shop_product_card_widget.dart';
 import 'home_page.dart';
@@ -65,7 +66,7 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
   }
 
   void _onTap(int index) {
-    _controller.forward(from: 1.0);
+    _controller.forward(from: 2.0);
     setState(() {
       _selectedIndex = index;
     });
@@ -80,6 +81,18 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    }
+    if (index == 1) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => CategoryListPage()),
+      );
+    }
+    if (index == 2) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ShopPage2(id: id)),
       );
     }
   }
