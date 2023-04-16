@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+
+<form id="form">
+  <div class="container">
+    <h1>Register new Shop</h1>
+    <p>Please fill in this form to add new Shop</p>
+    <hr>
+
+    <form id="form">
+      <label for="sid">Shop id:</label>
+      <input type="text" id="sid" name="sid"><br>
+      <label for="name">name:</label>
+      <input type="text" id="name" name="name"><br>
+      <label for="phone">phone no:</label>
+      <input type="text" id="phone" name="phone"><br>
+      <label for="address"><address></address>:</label>
+      <input type="text" id="address" name="address"><br>
+    </form>
+    <label for="image">Upload:</label>
+    <input type="file" id ="image" name="image"><br>
+    <button type="submit" class="registerbtn" onclick="submit();">Submit</button>
+    
+    
+  </div>
+
+  
+</form>
+
+
+
+
+<script>
+function submit() {
+  const data = new FormData(document.getElementById("form"));
+  const img = document.getElementById("image").files[0];
+  data.append('image', img);
+  fetch('/add_shop', {
+    method: 'post',
+    body: data
+  }).then(() => {
+    window.location.replace("/");
+  });
+}
+</script>
+
+</body>
+</html>
