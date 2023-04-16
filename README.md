@@ -1,7 +1,7 @@
-### Title
+##### Title
 Zoobi - Try it before you buy it
 
-### Description of the hack
+##### Description of the hack
 The catalogue app "Zoobi", which we have created provides a convenient and efficient way for users to access and explore products from various stores without physically going there. This saves users time and effort while allowing them to easily find the products they are interested in.
 
 With the app, users can search for products based on their preferences and current fashion trends. They can also compare and explore products from multiple stores in a particular vicinity. This not only saves time but also provides a more comprehensive view of the products available in the market.
@@ -18,20 +18,20 @@ Overall, the catalogue app makes shopping easier, safer, and more convenient for
 
 
 
-### Tech stack used
+##### Tech stack used
 Flutter, IPFS, Python, Machine Learning, Node.js, Express.js, formidable-parser, mongo-db
 
 
-### Installation steps
+##### Installation steps
 1. Run the Back-End using node.js.
 2. Run IPFS daemon.
 3. Run mongo-db locally at port 5001
 4. Download our APK 
 
 
-**Libraries and dependencies required for the project**
-FOR RECOMMENDATION SYSTEM
-*numpy==1.20.3
-*pandas==1.5.3
-*sklearn==0.0.post1
+##### Libraries and dependencies required for the project
+## FOR RECOMMENDATION SYSTEM
+* numpy==1.20.3
+* pandas==1.5.3
+* sklearn==0.0.post1
 
