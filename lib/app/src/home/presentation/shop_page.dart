@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'dart:convert';
+import 'package:hackverse/app/src/category/category_list_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackverse/app/config/theme/app_colors.dart';
 import 'package:hackverse/app/shared/widgets/avatar_widget.dart';
@@ -57,7 +58,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
   }
 
   void _onTap(int index) {
-    _controller.forward(from: 1.0);
+    _controller.forward(from: 2.0);
     setState(() {
       _selectedIndex = index;
     });
@@ -72,6 +73,18 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    }
+    if (index == 1) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => CategoryListPage()),
+      );
+    }
+    if (index == 2) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ShopPage()),
       );
     }
   }

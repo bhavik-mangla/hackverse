@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../product_model.dart';
 import '../../QRPage.dart';
+import '../../category/category_list_page.dart';
 import 'components/home_product_card_widget.dart';
 import 'components/runing_drop_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -68,6 +69,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       }
     });
     if (index == 1) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ShopPage()),
+      );
+    }
+    if (index == 1) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => CategoryListPage()),
+      );
+    }
+    if (index == 2) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ShopPage()),
