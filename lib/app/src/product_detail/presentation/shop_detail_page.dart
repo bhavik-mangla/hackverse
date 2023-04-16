@@ -60,6 +60,7 @@ class _ShopDetailPageState extends State<ShopDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    print("http://10.20.61.164" + image.image.substring(21));
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     final size = MediaQuery.of(context).size;
@@ -108,7 +109,10 @@ class _ShopDetailPageState extends State<ShopDetailPage> {
                                       child: FadeInImage(
                                         placeholder: const AssetImage(
                                             'assets/cash/img.png'),
-                                        image: NetworkImage(image.image ?? ''),
+                                        image: NetworkImage(
+                                            "http://10.20.61.164" +
+                                                    image.image.substring(21) ??
+                                                ''),
                                         imageErrorBuilder:
                                             (context, error, stackTrace) {
                                           return Image.asset(

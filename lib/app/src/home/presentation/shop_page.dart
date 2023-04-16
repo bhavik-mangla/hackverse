@@ -8,10 +8,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../product_model.dart';
+import '../../QRPage.dart';
 import 'components/home_product_card_widget.dart';
 import 'components/runing_drop_widget.dart';
 import 'components/shop_product_card_widget.dart';
 import 'home_page.dart';
+
+import 'package:permission_handler/permission_handler.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -45,7 +48,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
 
   Future<String> fetchCatalogue() async {
     final response =
-        await http.get(Uri.parse('http://localhost:3000/catalogue'));
+        await http.get(Uri.parse('http://10.20.61.164:3000/catalogue'));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
@@ -98,6 +101,15 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                           .map((x) => Listing.fromJson(x)))));
                 }
               }
+              Future<PermissionStatus> _getCameraPermission() async {
+                var status = await Permission.camera.status;
+                if (!status.isGranted) {
+                  final result = await Permission.camera.request();
+                  return result;
+                } else {
+                  return status;
+                }
+              }
 
               allShops.shuffle();
               return Column(
@@ -110,7 +122,21 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const FaIcon(FontAwesomeIcons.barsStaggered),
+                          GestureDetector(
+                            onTap: () async {
+                              PermissionStatus status =
+                                  await _getCameraPermission();
+                              if (status.isGranted) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const QRPage()),
+                                );
+                              }
+                            },
+                            child: const FaIcon(Icons.qr_code_scanner,
+                                color: AppColors.primaryColor),
+                          ),
                           Text(
                             'Shoop Menu',
                             style: GoogleFonts.poppins(

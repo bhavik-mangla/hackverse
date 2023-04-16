@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackverse/app/config/theme/app_colors.dart';
 import 'package:hackverse/app/shared/widgets/avatar_widget.dart';
@@ -8,22 +9,29 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../product_model.dart';
+
+import 'package:permission_handler/permission_handler.dart';
+
 import '../../QRPage.dart';
-import 'components/home_product_card_widget.dart';
 import 'components/runing_drop_widget.dart';
 import 'components/shop_product_card_widget.dart';
 import 'home_page.dart';
 
-import 'package:permission_handler/permission_handler.dart';
-
-class ShopPage extends StatefulWidget {
-  const ShopPage({super.key});
+class ShopPage2 extends StatefulWidget {
+  final String id;
+  const ShopPage2({
+    super.key,
+    required this.id,
+  });
 
   @override
-  State<ShopPage> createState() => _ShopPageState();
+  State<ShopPage2> createState() => _ShopPage2State(id);
 }
 
-class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
+class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
+  final String id;
+  _ShopPage2State(this.id);
+
   late AnimationController _controller;
   late int _selectedIndex;
   late int _previousIndex;
@@ -101,6 +109,39 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                           .map((x) => Listing.fromJson(x)))));
                 }
               }
+              List<Shop> findShopById(String id, List<Shop> shops) {
+                List<Shop> searchedShops = [];
+                for (Shop shop in shops) {
+                  if (shop.sid.toString() == id) {
+                    searchedShops.add(shop);
+                  }
+                }
+                return searchedShops;
+              }
+
+              List<Shop> searchedShops = findShopById(
+                  id, allShops); //searchedShops is the shop with the id
+              print(searchedShops.length);
+              if (searchedShops.length == 0) {
+                searchedShops = allShops;
+                Fluttertoast.showToast(
+                    msg: "No shop found",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              } else {
+                Fluttertoast.showToast(
+                    msg: "Shop found",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              }
               Future<PermissionStatus> _getCameraPermission() async {
                 var status = await Permission.camera.status;
                 if (!status.isGranted) {
@@ -163,11 +204,11 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                             ),
                           ),
                           child: ListView.separated(
-                            itemCount: allShops.length,
+                            itemCount: searchedShops.length,
                             separatorBuilder: (context, index) =>
                                 const SizedBox(height: 10),
                             itemBuilder: (context, index) {
-                              Shop image = allShops[index];
+                              Shop image = searchedShops[index];
 
                               return ShopProductCardWidget(
                                 image: image,

@@ -1,5 +1,6 @@
-import 'dart:ui';
 import 'dart:convert';
+import 'dart:ui';
+
 import 'package:hackverse/app/src/home/presentation/shop_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackverse/app/config/theme/app_colors.dart';
@@ -9,8 +10,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../product_model.dart';
+import '../../QRPage.dart';
 import 'components/home_product_card_widget.dart';
 import 'components/runing_drop_widget.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,7 +47,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Future<String> fetchCatalogue() async {
     final response =
-        await http.get(Uri.parse('http://localhost:3000/catalogue'));
+        await http.get(Uri.parse('http://10.20.61.164:3000/catalogue'));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
@@ -95,6 +98,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       description: product['description']));
                 }
               }
+              Future<PermissionStatus> _getCameraPermission() async {
+                var status = await Permission.camera.status;
+                if (!status.isGranted) {
+                  final result = await Permission.camera.request();
+                  return result;
+                } else {
+                  return status;
+                }
+              }
 
               allProducts.shuffle();
               return Column(
@@ -107,7 +119,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const FaIcon(FontAwesomeIcons.barsStaggered),
+                          GestureDetector(
+                            onTap: () async {
+                              PermissionStatus status =
+                                  await _getCameraPermission();
+                              if (status.isGranted) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const QRPage()),
+                                );
+                              }
+                            },
+                            child: const FaIcon(Icons.qr_code_scanner,
+                                color: AppColors.primaryColor),
+                          ),
                           Text(
                             'Shoop Menu',
                             style: GoogleFonts.poppins(

@@ -1,6 +1,6 @@
 {
-    "name": "beer_store",
-    "short_name": "beer_store",
+    "name": "verse_store",
+    "short_name": "verse_store",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

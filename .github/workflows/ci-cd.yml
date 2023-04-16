@@ -76,7 +76,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: "develogo/beerstore:${{ env.VERSION_TAG }}, develogo/beerstore:latest"
+          tags: "develogo/versestore:${{ env.VERSION_TAG }}, develogo/versestore:latest"
     outputs:
       job_name: ${{ env.JOB_NAME }}
 
@@ -85,7 +85,7 @@ jobs:
     name: Send notification to webhook
     runs-on: ubuntu-latest
     env:
-      NAME: "Beer Store"
+      NAME: "verse Store"
     needs:
       - flutter_test
       - build

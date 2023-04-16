@@ -232,7 +232,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, 'forgot');
+                      Navigator.pushNamed(context, 'home');
                     },
                     child: const Text("Forgot Password"),
                   ),

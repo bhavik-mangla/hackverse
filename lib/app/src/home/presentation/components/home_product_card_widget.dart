@@ -107,28 +107,26 @@ class HomeProductCardWidget extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Row(
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.solidStar,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          FaIcon(
+                            FontAwesomeIcons.solidStar,
+                            color: Colors.yellow[700],
+                            size: 16,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            '4.5',
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                               color: Colors.yellow[700],
-                              size: 16,
                             ),
-                            const SizedBox(width: 4),
-                            Text(
-                              '4.5',
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.yellow[700],
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 16),
+                      SizedBox(width: width * 0.05),
                     ],
                   ),
                 )
@@ -138,20 +136,22 @@ class HomeProductCardWidget extends StatelessWidget {
               left: -0,
               child: SizedBox(
                 height: 140,
-                width: 120,
+                width: 100,
                 child: Hero(
                   tag: image,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: FadeInImage(
                       placeholder: const AssetImage('assets/cash/img.png'),
-                      image: NetworkImage(image.image ?? ''),
+                      image: NetworkImage(
+                          "http://10.20.61.164" + image.image.substring(21) ??
+                              ''),
                       imageErrorBuilder: (context, error, stackTrace) {
                         return Image.asset('assets/cash/img_1.png',
                             width: width != 0.0 ? width : null,
                             height: height != 0.0 ? height : null);
                       },
-                      fit: BoxFit.fitHeight,
+                      fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),

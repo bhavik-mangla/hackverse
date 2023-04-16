@@ -10,7 +10,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Beer Store',
+      title: 'verse Store',
       theme: ThemeData(
         primaryColor: AppColors.primaryColor,
         iconTheme: const IconThemeData(color: AppColors.primaryColor),

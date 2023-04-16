@@ -1,7 +1,13 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:hackverse/app/config/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../product_model.dart';
 import '../../../../../sample2.dart';
@@ -18,6 +24,26 @@ class ShopProductCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    launchWhatsapp() async {
+      var whatsapp = image.phone.toString();
+      var cc = '+91'.toString();
+      var androidUrl =
+          "whatsapp://send?phone=$cc$whatsapp&text=Hey, I want to share a ride with you";
+      var iosUrl =
+          "https://wa.me/$cc$whatsapp?text=${Uri.parse('Hey, I want to share a ride with you')}";
+      try {
+        if (kIsWeb) {
+          await launch(iosUrl);
+        } else if (Platform.isAndroid) {
+          await launch(androidUrl);
+        } else if (Platform.isIOS) {
+          await launch(iosUrl);
+        }
+      } on Exception {
+        Fluttertoast.showToast(msg: "Whatsapp not installed");
+      }
+    }
+
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return GestureDetector(
@@ -97,13 +123,15 @@ class ShopProductCardWidget extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      const SizedBox(
-                        width: 120,
+                      SizedBox(
+                        width: width * .3,
                       ),
                       SizedBox(
-                        width: 140,
+                        width: width * .35,
                         child: AppButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            launchWhatsapp();
+                          },
                           child: Text(
                             image.phone,
                             style: GoogleFonts.poppins(
@@ -115,28 +143,25 @@ class ShopProductCardWidget extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Row(
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.solidStar,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          FaIcon(
+                            FontAwesomeIcons.solidStar,
+                            color: Colors.yellow[700],
+                            size: 16,
+                          ),
+                          Text(
+                            '4.5',
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                               color: Colors.yellow[700],
-                              size: 16,
                             ),
-                            const SizedBox(width: 4),
-                            Text(
-                              '4.5',
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.yellow[700],
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(width: width * 0.05),
+                        ],
                       ),
-                      const SizedBox(width: 16),
                     ],
                   ),
                 )
@@ -153,7 +178,9 @@ class ShopProductCardWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15.0),
                     child: FadeInImage(
                       placeholder: const AssetImage('assets/cash/img.png'),
-                      image: NetworkImage(image.image ?? ''),
+                      image: NetworkImage(
+                          "http://10.20.61.164" + image.image.substring(21) ??
+                              ''),
                       imageErrorBuilder: (context, error, stackTrace) {
                         return Image.asset('assets/cash/img_1.png',
                             width: width != 0.0 ? width : null,

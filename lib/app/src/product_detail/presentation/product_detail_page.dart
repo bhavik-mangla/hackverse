@@ -62,6 +62,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     final size = MediaQuery.of(context).size;
+    print(image.image);
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       appBar: AppBarWidget(
@@ -99,7 +100,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               valueListenable: _imageHeight,
                               builder: (context, value, _) {
                                 return Container(
-                                  height: value * 1.5,
+                                  height: value,
                                   child: Hero(
                                     tag: image,
                                     child: ClipRRect(
@@ -107,7 +108,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       child: FadeInImage(
                                         placeholder: const AssetImage(
                                             'assets/cash/img.png'),
-                                        image: NetworkImage(image.image ?? ''),
+                                        image: NetworkImage(
+                                            "http://10.20.61.164" +
+                                                    image.image.substring(21) ??
+                                                ''),
                                         imageErrorBuilder:
                                             (context, error, stackTrace) {
                                           return Image.asset(

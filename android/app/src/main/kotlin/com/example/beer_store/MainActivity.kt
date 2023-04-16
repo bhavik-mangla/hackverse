@@ -1,4 +1,4 @@
-package com.example.beer_store
+package com.example.verse_store
 
 import io.flutter.embedding.android.FlutterActivity
 

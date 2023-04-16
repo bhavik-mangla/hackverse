@@ -46,7 +46,7 @@ jobs:
     name: Send notification to webhook
     runs-on: ubuntu-latest
     env:
-      NAME: "Beer Store"
+      NAME: "verse Store"
     needs:
       - flutter_test
     if: ${{ always() }}

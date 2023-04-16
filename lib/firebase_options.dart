@@ -67,8 +67,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '719382982106',
     projectId: 'hackverse-auth',
     storageBucket: 'hackverse-auth.appspot.com',
-    iosClientId: '719382982106-4os7tehnbu2d5u32rlkn6g1d4qnnhfap.apps.googleusercontent.com',
-    iosBundleId: 'com.example.beerStore',
+    iosClientId:
+        '719382982106-4os7tehnbu2d5u32rlkn6g1d4qnnhfap.apps.googleusercontent.com',
+    iosBundleId: 'com.example.verseStore',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '719382982106',
     projectId: 'hackverse-auth',
     storageBucket: 'hackverse-auth.appspot.com',
-    iosClientId: '719382982106-4os7tehnbu2d5u32rlkn6g1d4qnnhfap.apps.googleusercontent.com',
-    iosBundleId: 'com.example.beerStore',
+    iosClientId:
+        '719382982106-4os7tehnbu2d5u32rlkn6g1d4qnnhfap.apps.googleusercontent.com',
+    iosBundleId: 'com.example.verseStore',
   );
 }

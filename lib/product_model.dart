@@ -69,4 +69,9 @@ class Shop {
     final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
     return parsed.map<Shop>((json) => Shop.fromJson(json)).toList();
   }
+
+  //find a shop by id
+  Shop findShopById(String id, List<Shop> shops) {
+    return shops.firstWhere((element) => element.sid == id);
+  }
 }

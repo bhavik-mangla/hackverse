@@ -1,6 +1,6 @@
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../../../product_model.dart';
 import '../../../../config/theme/app_colors.dart';
 import '../product_detail_page.dart';
@@ -16,12 +16,20 @@ class ShopInfoSectionComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _searchController = TextEditingController();
     return Padding(
-      padding: const EdgeInsets.only(left: 52),
-      child: Column(
-        children: [
-          SingleChildScrollView(
-            child: MasonryGridView.count(
+      padding: const EdgeInsets.all(10),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            AnimSearchBar(
+              width: 400,
+              textController: _searchController,
+              onSuffixTap: () {},
+              onSubmitted: (String) {},
+            ),
+            const SizedBox(height: 20),
+            MasonryGridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.all(0),
@@ -50,9 +58,8 @@ class ShopInfoSectionComponent extends StatelessWidget {
                 );
               },
             ),
-          ),
-          SizedBox(height: 14),
-        ],
+          ],
+        ),
       ),
     );
   }
