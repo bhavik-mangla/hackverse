@@ -30,7 +30,7 @@ Flutter, IPFS, Python, Machine Learning, Node.js, Express.js, formidable-parser,
 
 
 ### Libraries and dependencies required for the project
-### FOR RECOMMENDATION SYSTEM
+FOR RECOMMENDATION SYSTEM
 * numpy==1.20.3
 * pandas==1.5.3
 * sklearn==0.0.post1
