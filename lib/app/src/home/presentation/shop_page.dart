@@ -78,12 +78,6 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
     if (index == 1) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => CategoryListPage()),
-      );
-    }
-    if (index == 2) {
-      Navigator.pushReplacement(
-        context,
         MaterialPageRoute(builder: (context) => ShopPage()),
       );
     }
@@ -244,14 +238,14 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => _onTap(1),
+                                              onTap: () => _onTap(2),
                                               child: const FaIcon(
                                                 FontAwesomeIcons.shop,
                                                 color: AppColors.secondaryColor,
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => _onTap(2),
+                                              onTap: () => _onTap(3),
                                               child: const FaIcon(
                                                 FontAwesomeIcons.cartShopping,
                                                 color: AppColors.secondaryColor,

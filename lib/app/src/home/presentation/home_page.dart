@@ -68,18 +68,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         });
       }
     });
-    if (index == 1) {
+    if (index == 0) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ShopPage()),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
-    if (index == 1) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => CategoryListPage()),
-      );
-    }
+
     if (index == 2) {
       Navigator.pushReplacement(
         context,

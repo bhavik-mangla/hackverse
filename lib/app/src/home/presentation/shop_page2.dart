@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hackverse/app/src/home/presentation/shop_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:hackverse/app/config/theme/app_colors.dart';
 import 'package:hackverse/app/shared/widgets/avatar_widget.dart';
@@ -46,7 +47,7 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
       vsync: this,
       //milliseconds: 800
       duration: const Duration(milliseconds: 500),
-    )..forward(from: 2.0);
+    )..forward(from: 3.0);
   }
 
   @override
@@ -66,7 +67,7 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
   }
 
   void _onTap(int index) {
-    _controller.forward(from: 2.0);
+    _controller.forward(from: 3.0);
     setState(() {
       _selectedIndex = index;
     });
@@ -83,16 +84,11 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
         MaterialPageRoute(builder: (context) => HomePage()),
       );
     }
-    if (index == 1) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => CategoryListPage()),
-      );
-    }
+
     if (index == 2) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ShopPage2(id: id)),
+        MaterialPageRoute(builder: (context) => ShopPage()),
       );
     }
   }
@@ -276,7 +272,8 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => _onTap(1),
+                                              onTap: () => Navigator.pushNamed(
+                                                  context, 'category'),
                                               child: const FaIcon(
                                                 FontAwesomeIcons
                                                     .magnifyingGlass,

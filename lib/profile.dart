@@ -31,7 +31,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
       vsync: this,
       //milliseconds: 800
       duration: const Duration(milliseconds: 500),
-    )..forward(from: 0.0);
+    )..forward(from: 1.0);
   }
 
   @override
@@ -41,7 +41,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   }
 
   void _onTap(int index) {
-    _controller.forward(from: 0.0);
+    _controller.forward(from: 1.0);
     setState(() {
       _selectedIndex = index;
     });

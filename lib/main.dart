@@ -12,7 +12,6 @@ import 'app/auth/authentication/auth/authenticate.dart';
 import 'app/auth/authentication/auth/sign_in.dart';
 import 'app/auth/authentication/auth/sign_up.dart';
 import 'app/auth/providers/sign.dart';
-import 'app/src/home/presentation/home_page2.dart';
 import 'app/src/product_detail/presentation/product_detail_page.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
@@ -56,7 +55,6 @@ class MyApp extends StatelessWidget {
           '/profile': (context) => const Profile(),
           'category': (context) => CategoryListPage(),
           'shop': (context) => ShopPage(),
-          'home2': (context) => HomePage2(),
         },
       ),
     );
