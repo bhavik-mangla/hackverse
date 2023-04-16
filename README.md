@@ -1,3 +1,6 @@
+Youtube Video link: https://youtu.be/umbvB2gAeoQ
+APK link: https://drive.google.com/file/d/1ftpmwqmxaJoJu3l_n0o5TP5QGqSgFrqQ/view?usp=share_link
+
 ### Title
 Zoobi - Try it before you buy it
 
