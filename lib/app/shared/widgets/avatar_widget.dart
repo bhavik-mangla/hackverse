@@ -17,7 +17,7 @@ class AvatarWidget extends StatelessWidget {
             },
             child: const CircleAvatar(
               radius: 18,
-              backgroundImage: AssetImage('assets/images/profile_pic.jpg'),
+              backgroundImage: AssetImage('assets/images/profile_pic.png'),
             ),
           ),
           Positioned(

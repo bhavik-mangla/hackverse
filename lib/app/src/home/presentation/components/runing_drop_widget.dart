@@ -16,7 +16,7 @@ class RunningDropWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-    final maxElementWidth = deviceWidth / 3;
+    final maxElementWidth = deviceWidth / 4;
     return AnimatedBuilder(
         animation: controller,
         builder: (_, __) {
@@ -37,10 +37,10 @@ class RunningDropWidget extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    height: 2,
+                    height: 5,
                     width: 50,
                     decoration: const BoxDecoration(
-                      color: AppColors.secondaryColor,
+                      color: AppColors.primaryColor,
                     ),
                   ),
                 ],

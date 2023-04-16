@@ -62,7 +62,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     final size = MediaQuery.of(context).size;
-    print(image.image);
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       appBar: AppBarWidget(
@@ -166,7 +165,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
-                              image.price,
+                              "₹" + image.price,
                               style: GoogleFonts.poppins(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,

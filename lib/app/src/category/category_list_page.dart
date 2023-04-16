@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../category.dart';
+import '../../config/theme/app_colors.dart';
 import 'components/staggered_category_card.dart';
 
 class CategoryListPage extends StatefulWidget {
@@ -59,7 +61,7 @@ class _CategoryListPageState extends State<CategoryListPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Color(0xffF9F9F9),
+      color: AppColors.secondaryColor,
       child: Container(
         margin: const EdgeInsets.only(top: kToolbarHeight),
         padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -72,10 +74,10 @@ class _CategoryListPageState extends State<CategoryListPage> {
                 padding: EdgeInsets.symmetric(vertical: 16.0),
                 child: Text(
                   'Category List',
-                  style: TextStyle(
-                    color: Color(0xff333333),
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
+                  style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.primaryColor,
                   ),
                 ),
               ),
@@ -84,7 +86,7 @@ class _CategoryListPageState extends State<CategoryListPage> {
               padding: EdgeInsets.only(left: 16.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
-                color: Colors.white,
+                color: AppColors.primaryColor.withOpacity(0.25),
               ),
               child: TextField(
                 controller: searchController,

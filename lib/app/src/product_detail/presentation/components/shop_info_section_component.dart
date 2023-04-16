@@ -93,7 +93,8 @@ class ProductTiletrending extends StatelessWidget {
               borderRadius: BorderRadius.circular(15.0),
               child: FadeInImage(
                 placeholder: const AssetImage('assets/cash/img.png'),
-                image: NetworkImage(image ?? ''),
+                image: NetworkImage(
+                    "http://10.20.61.164" + image.substring(21) ?? ''),
                 imageErrorBuilder: (context, error, stackTrace) {
                   return Image.asset('assets/cash/img_1.png',
                       width: width != 0.0 ? width : null,

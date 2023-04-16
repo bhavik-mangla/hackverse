@@ -92,11 +92,11 @@ class _HomePage2State extends State<HomePage2> with TickerProviderStateMixin {
                 children: [
                   const FaIcon(FontAwesomeIcons.barsStaggered),
                   Text(
-                    'Shoop Menu',
+                    'Zoobi Menu',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
-                      color: Theme.of(context).primaryColor,
+                      color: AppColors.primaryColor,
                     ),
                   ),
                   const AvatarWidget()

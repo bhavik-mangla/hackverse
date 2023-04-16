@@ -135,11 +135,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 color: AppColors.primaryColor),
                           ),
                           Text(
-                            'Shoop Menu',
+                            'Zoobi Menu',
                             style: GoogleFonts.poppins(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
-                              color: Theme.of(context).primaryColor,
+                              color: AppColors.primaryColor,
                             ),
                           ),
                           const AvatarWidget()
@@ -228,14 +228,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => _onTap(1),
+                                              onTap: () => _onTap(2),
                                               child: const FaIcon(
                                                 FontAwesomeIcons.shop,
                                                 color: AppColors.secondaryColor,
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => _onTap(2),
+                                              onTap: () => _onTap(3),
                                               child: const FaIcon(
                                                 FontAwesomeIcons.cartShopping,
                                                 color: AppColors.secondaryColor,

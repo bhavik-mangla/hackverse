@@ -76,11 +76,11 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 children: [
                   const FaIcon(FontAwesomeIcons.barsStaggered),
                   Text(
-                    'Shoop Menu',
+                    'Zoobi Menu',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
-                      color: Theme.of(context).primaryColor,
+                      color: AppColors.primaryColor,
                     ),
                   ),
                   const AvatarWidget()
@@ -166,7 +166,18 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                     child: CircleAvatar(
                                       radius: width * 0.12,
                                       backgroundImage: AssetImage(
-                                          'assets/images/profile_pic.jpg'),
+                                          'assets/images/profile_pic.png'),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    user.email!,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.primaryColor,
                                     ),
                                   ),
                                 ),

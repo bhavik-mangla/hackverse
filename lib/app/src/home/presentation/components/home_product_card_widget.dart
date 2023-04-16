@@ -97,11 +97,11 @@ class HomeProductCardWidget extends StatelessWidget {
                         child: AppButton(
                           onPressed: () {},
                           child: Text(
-                            image.price,
+                            "₹" + image.price,
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.secondaryColor,
+                              color: AppColors.primaryColor,
                             ),
                           ),
                         ),

@@ -37,7 +37,7 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
       vsync: this,
       //milliseconds: 800
       duration: const Duration(milliseconds: 500),
-    )..forward(from: 1.0);
+    )..forward(from: 2.0);
   }
 
   @override
@@ -138,11 +138,11 @@ class _ShopPageState extends State<ShopPage> with TickerProviderStateMixin {
                                 color: AppColors.primaryColor),
                           ),
                           Text(
-                            'Shoop Menu',
+                            'Zoobi Menu',
                             style: GoogleFonts.poppins(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
-                              color: Theme.of(context).primaryColor,
+                              color: AppColors.primaryColor,
                             ),
                           ),
                           const AvatarWidget()

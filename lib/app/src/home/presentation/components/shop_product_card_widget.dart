@@ -28,9 +28,9 @@ class ShopProductCardWidget extends StatelessWidget {
       var whatsapp = image.phone.toString();
       var cc = '+91'.toString();
       var androidUrl =
-          "whatsapp://send?phone=$cc$whatsapp&text=Hey, I want to share a ride with you";
+          "whatsapp://send?phone=$cc$whatsapp&text=Hey, I really liked your store products. I would like to buy some products from your store.";
       var iosUrl =
-          "https://wa.me/$cc$whatsapp?text=${Uri.parse('Hey, I want to share a ride with you')}";
+          "https://wa.me/$cc$whatsapp?text=${Uri.parse('Hey, I really liked your store products. I would like to buy some products from your store.')}";
       try {
         if (kIsWeb) {
           await launch(iosUrl);
@@ -134,6 +134,7 @@ class ShopProductCardWidget extends StatelessWidget {
                           },
                           child: Text(
                             image.phone,
+                            overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -153,6 +154,7 @@ class ShopProductCardWidget extends StatelessWidget {
                           ),
                           Text(
                             '4.5',
+                            overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

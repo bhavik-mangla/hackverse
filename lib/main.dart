@@ -1,3 +1,4 @@
+import 'package:hackverse/app/auth/authentication/auth/forgetPassword.dart';
 import 'package:hackverse/app/src/category/category_list_page.dart';
 import 'package:hackverse/app/src/home/presentation/home_page.dart';
 import 'package:hackverse/app/src/home/presentation/shop_page.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           'signup': (context) => const SignUp(),
           'signin': (context) => const SignIn(),
           'home': (context) => HomePage(),
+          'forgot': (context) => ResetPassword(),
           '/profile': (context) => const Profile(),
           'category': (context) => CategoryListPage(),
           'shop': (context) => ShopPage(),

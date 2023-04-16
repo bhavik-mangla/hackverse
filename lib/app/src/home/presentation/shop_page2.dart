@@ -45,7 +45,7 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
       vsync: this,
       //milliseconds: 800
       duration: const Duration(milliseconds: 500),
-    )..forward(from: 1.0);
+    )..forward(from: 2.0);
   }
 
   @override
@@ -179,11 +179,11 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
                                 color: AppColors.primaryColor),
                           ),
                           Text(
-                            'Shoop Menu',
+                            'Zoobi Menu',
                             style: GoogleFonts.poppins(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
-                              color: Theme.of(context).primaryColor,
+                              color: AppColors.primaryColor,
                             ),
                           ),
                           const AvatarWidget()
@@ -263,8 +263,7 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => Navigator.pushNamed(
-                                                  context, 'category'),
+                                              onTap: () => _onTap(1),
                                               child: const FaIcon(
                                                 FontAwesomeIcons
                                                     .magnifyingGlass,
@@ -272,14 +271,14 @@ class _ShopPage2State extends State<ShopPage2> with TickerProviderStateMixin {
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => _onTap(1),
+                                              onTap: () => _onTap(2),
                                               child: const FaIcon(
                                                 FontAwesomeIcons.shop,
                                                 color: AppColors.secondaryColor,
                                               ),
                                             ),
                                             GestureDetector(
-                                              onTap: () => _onTap(2),
+                                              onTap: () => _onTap(3),
                                               child: const FaIcon(
                                                 FontAwesomeIcons.cartShopping,
                                                 color: AppColors.secondaryColor,
