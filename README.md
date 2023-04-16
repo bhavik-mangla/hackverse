@@ -1,4 +1,4 @@
-###Title
+###Title###
 Zoobi - Try it before you buy it
 
 ###Description of the hack
@@ -31,7 +31,7 @@ Flutter, IPFS, Python, Machine Learning, Node.js, Express.js, formidable-parser,
 
 **Libraries and dependencies required for the project**
 FOR RECOMMENDATION SYSTEM
-numpy==1.20.3
-pandas==1.5.3
-sklearn==0.0.post1
+*numpy==1.20.3
+*pandas==1.5.3
+*sklearn==0.0.post1
 
